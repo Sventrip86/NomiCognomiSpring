@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            background: #282C35;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .blue-button {
+            background: #25A6E1;
+            padding: 3px 5px;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 12px;
+            border-radius: 2px;
+            border: 1px solid #1A87B9;
+            text-decoration: none;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        table {
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: SteelBlue;
+            color: white;
+            padding: 8px;
+        }
+
+        td, th {
+            border: 1px solid gray;
+            padding: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid gray;
+            border-radius: 2px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background: #25A6E1;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 2px;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 10px auto;
+        }
+    </style>
+    <title>Aggiungi Persona</title>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/addPerson}" th:object="${person}" method="post">
+        <table>
+            <tr>
+                <th colspan="2">Aggiungi Persona</th>
+            </tr>
+            <tr>
+                <td align="right">Nome:</td>
+                <td align="left"><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td align="right">Secondo Nome:</td>
+                <td align="left"><input type="text" th:field="*{secondName}" /></td>
+            </tr>
+            <tr>
+                <td align="right">Cognome:</td>
+                <td align="left"><input type="text" th:field="*{surname}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Salva</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

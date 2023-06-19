@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body {
+            background-color: #282c35;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 50%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .blue-button {
+            background-color: #25a6e1;
+            padding: 3px 5px;
+            color: #fff;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 12px;
+            border-radius: 2px;
+            border: 1px solid #1a87b9;
+            text-decoration: none;
+            margin: 5px;
+            display: inline-block;
+        }
+
+        table {
+            font-family: "Helvetica Neue", Helvetica, sans-serif;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: steelblue;
+            color: white;
+            padding: 8px;
+        }
+
+        td, th {
+            border: 1px solid gray;
+            padding: 8px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid gray;
+            border-radius: 2px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #25a6e1;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 2px;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 12px;
+            cursor: pointer;
+            margin: 10px auto;
+        }
+
+        .register-link {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<form th:action="@{/registration}" th:object="${user}" method="post">        <table>
+            <tr>
+                <th colspan="2">User Registration</th>
+            </tr>
+            <tr>
+                <td align="right">Name:</td>
+                <td align="left"><input type="text" th:field="*{name}" /></td>
+            </tr>
+            <tr>
+                <td align="right">Surname:</td>
+                <td align="left"><input type="text" th:field="*{surname}" /></td>
+            </tr>
+            <tr>
+                <td align="right">Username:</td>
+                <td align="left"><input type="text" th:field="*{username}" /></td>
+            </tr>
+            <tr>
+                <td align="right">Password:</td>
+                <td align="left"><input type="password" th:field="*{password}" /></td>
+            </tr>
+            <tr>
+                <td align="right">Email:</td>
+                <td align="left"><input type="email" th:field="*{email}" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Register</button></td>
+            </tr>
+        </table>
+    </form>
+    <div class="register-link">
+        <a class="blue-button" href="/login">Already registered? Login</a>
+    </div>
+</div>
+</body>
+</html>

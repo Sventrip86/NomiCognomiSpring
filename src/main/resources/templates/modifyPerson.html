@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body {
+            background-color: #282C35;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .blue-button {
+            background-color: #25A6E1;
+            padding: 8px 16px;
+            color: #ffffff;
+            font-size: 14px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            margin: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .blue-button:hover {
+            background-color: #1A87B9;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #44637F;
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td, th {
+            border: 1px solid #334E67;
+            padding: 12px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #334E67;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #25A6E1;
+            color: #ffffff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #1A87B9;
+        }
+    </style>
+    <title>Modifica Persona</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Modifica Persona</h1>
+        <form th:action="@{/addPersona}" th:object="${persona}" method="post">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <td><input type="text" th:field="*{id}" readonly="readonly" /></td>
+                </tr>
+                <tr>
+                    <th>Nome</th>
+                    <td><input type="text" th:field="*{nome}" /></td>
+                </tr>
+                <tr>
+                    <th>Secondo Nome</th>
+                    <td><input type="text" th:field="*{secondoNome}" /></td>
+                </tr>
+                <tr>
+                    <th>Cognome</th>
+                    <td><input type="text" th:field="*{cognome}" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit">Salva</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

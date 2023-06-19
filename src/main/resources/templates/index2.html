@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nomi e Cognomi</title>
+    <style>
+        body {
+            background-color: #282C35;
+            color: #ffffff;
+            font-family: 'Helvetica Neue', Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #25A6E1;
+        }
+
+        .blue-button {
+            background-color: #25A6E1;
+            padding: 10px 20px;
+            color: #ffffff;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            text-decoration: none;
+            margin: 10px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .blue-button:hover {
+            background-color: #1A87B9;
+        }
+
+        .edit-button {
+            background-color: #E1A725;
+            margin-right: 5px;
+        }
+
+        .delete-button {
+            background-color: #E12525;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #44637F;
+            color: #ffffff;
+            padding: 12px;
+            text-align: left;
+            width: 30%;
+        }
+
+        td, th {
+            border: 1px solid #334E67;
+            padding: 12px;
+            width: 30%;
+            word-wrap: break-word;
+            max-width: 30%;
+        }
+
+        .edit-link, .delete-link {
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .edit-link:hover, .delete-link:hover {
+            text-decoration: underline;
+        }
+
+        .edit-link {
+            background-color: #E1A725;
+        }
+
+        .delete-link {
+            background-color: #E12525;
+        }
+
+        .edit-link:hover, .delete-link:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Persone</h1>
+        <a href="/new" class="blue-button">Aggiungi persona</a>
+        <a href="/login" class="blue-button">Login</a>
+
+        <table>
+            <thead>
+                <tr>
+                	<th>ID</th>
+                    <th>Nome</th>
+                    <th>Secondo Nome</th>
+                    <th>Cognome</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="persona : ${listPeople}">
+                	<td th:text="${persona.id}">ID</td>
+                    <td th:text="${persona.name}"></td>
+                    <td th:text="${persona.secondName}"></td>
+                    <td th:text="${persona.surname}"></td>
+                    <td>
+                        <a class="edit-link edit-button" th:href="@{/edit/{id}(id=${persona.id})}">Modifica</a></br></br>
+                        <a class="delete-link delete-button" th:href="@{/delete/{id}(id=${persona.id})}">Elimina</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

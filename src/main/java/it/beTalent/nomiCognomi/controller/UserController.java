@@ -52,7 +52,7 @@ public class UserController {
             User user = users.get(0);
             if (user.getPassword().equals(password)) {
                 // Credenziali corrette, reindirizza all'area riservata
-                return "dashboard";
+                return "redirect:/dashboard";
             }
         }
         
